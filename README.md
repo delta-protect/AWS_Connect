@@ -16,8 +16,8 @@ Run `curl https://raw.githubusercontent.com/delta-protect/Path/script -s | ACCOU
 
 *(Remote script will check for the necessary programs and permissions in order to execute the commands. If not properly installed or configured, it will give a descriptive error and exit)*
 
-## (Optional) **CLEANUP: ACCOUNT A (TRUSTING ACCOUNT)**
+## (Optional) **Cleanup: Ran by account A (Trustinmg account)**
 * Script `Cleanup.sh` - this will automatically detach the policy from the Role, and delete the Role. Success/error flags will be printed in stdout
 
-# ACCOUNT B (TRUSTED ACCOUNT - "Auditor")
+# ACCOUNT B (Trusted account - "Auditor")
 * Receive the full **ARN** for the role (This ARN will already include the Account A's ID as well as the name of the role) - Format: `aws:arn:iam::1234561235:role/RoleName`
