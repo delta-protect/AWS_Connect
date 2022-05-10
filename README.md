@@ -6,10 +6,17 @@ To-Do: Address [Confused Deputy problem](https://docs.aws.amazon.com/IAM/latest/
 Requirements: AWS CLI installed and configured with an administrative access. 
 Extras: cURL, AWK in Linux/MacOS or AWS' native Cloudshell
 
-* Run `curl https://raw.githubusercontent.com/delta-protect/Path/script -s | ACCOUNT_ID="<DELTAPROTECT-ACCOUNT-ID>" bash`
-(Remote script will check for the necessary programs and permissions in order to execute the commands. If not properly installed or configured, it will give a descriptive error and exit)
+## 1. Via AWS Web Console:
 
-(Optional) **CLEANUP: ACCOUNT A (TRUSTING ACCOUNT)**
+Open the preconfigured console using [this link](https://us-east-1.console.aws.amazon.com/iamv2/home#/roles/create?awsAccount=678625457521&step=selectEntities&trustedEntityType=AWS_ACCOUNT), uncheck MFA token usage. Click "Next", add ReadOnly access policy to the role, select a new Role Name and Tags. Click "Create Role". Take note of the Role ARN (Format: `aws:arn:iam::1234561235:role/RoleName`).
+
+## 2. Programatically (AWS CLI):
+
+Run `curl https://raw.githubusercontent.com/delta-protect/Path/script -s | ACCOUNT_ID="<DELTAPROTECT-ACCOUNT-ID>" bash` to automatically create a new Role and give ReadOnly access to the remote account via STS.
+
+*(Remote script will check for the necessary programs and permissions in order to execute the commands. If not properly installed or configured, it will give a descriptive error and exit)*
+
+## (Optional) **CLEANUP: ACCOUNT A (TRUSTING ACCOUNT)**
 * Script `Cleanup.sh` - this will automatically detach the policy from the Role, and delete the Role. Success/error flags will be printed in stdout
 
 # ACCOUNT B (TRUSTED ACCOUNT - "Auditor")
