@@ -6,7 +6,7 @@ To-Do: Address [Confused Deputy problem](https://docs.aws.amazon.com/IAM/latest/
 Requirements: AWS CLI installed and configured with an administrative access. 
 Extras: cURL, AWK in Linux/MacOS or AWS' native Cloudshell
 
-* Run `curl https://(Repository URL) -s | ACCOUNT_ID="<DELTAPROTECT-ACCOUNT-ID>" bash`
+* Run `curl https://raw.githubusercontent.com/delta-protect/Path/script -s | ACCOUNT_ID="<DELTAPROTECT-ACCOUNT-ID>" bash`
 (Remote script will check for the necessary programs and permissions in order to execute the commands. If not properly installed or configured, it will give a descriptive error and exit)
 
 (Optional) **CLEANUP: ACCOUNT A (TRUSTING ACCOUNT)**
