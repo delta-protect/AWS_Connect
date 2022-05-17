@@ -56,7 +56,9 @@ aws iam create-role \
 		aws iam attach-role-policy \
 			--role-name $ROLE_NAME \
 			--policy-arn arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null && \
-			echo "[+] 1/1 SUCCESS CREATING $ROLE_NAME" || echo "[x] ERROR CREATING $ROLE_NAME
+			echo "[+] 1/1 SUCCESS CREATING $ROLE_NAME"
+
+if [[ $? -gt 0 ]]; then echo "[x] ERROR CREATING $ROLE_NAME" && exit 1;fi
 
 # Get Role's ARN and print it to stdout:
 ROLE_ARN=$(aws iam list-roles | grep assumeRole-Role | grep Arn | sed 's/"//g' | sed 's/,//' | awk '{print $2}')
