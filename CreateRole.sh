@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd ~/
+
 ROLE_NAME='assumeRole-Role'
 SESSION_DURATION='43200'
 POLICY_DOCUMENT='trustPolicy.json'
