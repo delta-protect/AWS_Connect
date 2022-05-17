@@ -17,6 +17,7 @@ _CHECK_PROGRAM aws
 _CHECK_PROGRAM awk
 _CHECK_PROGRAM sed
 
+# Generate JSON trust policy
 POLICY_FILE_CONTENT=$(cat <<-END
 {
     "Version": "2012-10-17",
@@ -34,6 +35,7 @@ POLICY_FILE_CONTENT=$(cat <<-END
 END
 )
 
+
 # Create JSON file with name $JSON_FILE & Handling errors after creation
 JSON_FILE=trustPolicy.json
 echo $POLICY_FILE_CONTENT > $JSON_FILE
@@ -46,7 +48,7 @@ fi
 # AWS Execution
 echo "[i] Creating a new IAM role"
 aws iam create-role \
-		--assume-role-policy-document file://$POLICY_DOCUMENT \
+		--assume-role-policy-document file://$JSON_FILE \
 		--max-session-duration $SESSION_DURATION \
 		--role-name $ROLE_NAME \
 		--permissions-boundary arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null \
