@@ -59,7 +59,7 @@ aws iam create-role \
 			--role-name $ROLE_NAME \
 			--policy-arn arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null && \
             
-        aws iam attach-role-policy 
+        aws iam attach-role-policy \
             --role-name $ROLE_NAME \
                 --policy-arn arn:aws:iam::aws:policy/job-function/SecurityAudit &>/dev/null && \
 			echo "[+] 1/1 SUCCESS CREATING $ROLE_NAME"
