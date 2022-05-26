@@ -53,7 +53,7 @@ aws iam create-role \
 		--assume-role-policy-document file://$JSON_FILE \
 		--max-session-duration $SESSION_DURATION \
 		--role-name $ROLE_NAME \
-		--permissions-boundary arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null && \ 
+		--permissions-boundary arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null && \
 
         aws iam put-role-permissions-boundary \
             --permissions-boundary arn:aws:iam::aws:policy/SecurityAudit \
