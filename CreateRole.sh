@@ -54,9 +54,7 @@ aws iam create-role \
 		--max-session-duration $SESSION_DURATION \
 		--role-name $ROLE_NAME \
 		--permissions-boundary arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null \
-        echo "[+] 1/1 SUCCESS CREATING $ROLE_NAME" \
-        
-		&& \
+        echo "[+] 1/1 SUCCESS CREATING $ROLE_NAME" && \
 		aws iam attach-role-policy \
 			--role-name $ROLE_NAME \
 			--policy-arn arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null && \
