@@ -56,8 +56,8 @@ aws iam create-role \
 		--permissions-boundary arn:aws:iam::aws:policy/job-function/ViewOnlyAccess &>/dev/null && \ 
 
         aws iam put-role-permissions-boundary \
-        --permissions-boundary arn:aws:iam::aws:policy/SecurityAudit \
-        --role-name $ROLE_NAME && \
+            --permissions-boundary arn:aws:iam::aws:policy/SecurityAudit \
+            --role-name $ROLE_NAME && \
         echo "[+] 1/1 SUCCESS CREATING $ROLE_NAME" && \
 
 		aws iam attach-role-policy \
