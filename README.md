@@ -12,7 +12,7 @@ Open the preconfigured console using [this link](https://us-east-1.console.aws.a
 
 ## 2. Programatically (AWS CLI):
 
-Run `curl https://raw.githubusercontent.com/delta-protect/Path/script -s | ACCOUNT_ID="<DELTAPROTECT-ACCOUNT-ID>" bash` to automatically create a new Role and give ReadOnly access to the remote account via STS.
+Run `curl https://raw.githubusercontent.com/delta-protect/Path/script -s | ACCOUNT_ID="<ACCOUNT-ID>" bash` to automatically create a new Role and give ReadOnly access to the remote account via STS.
 
 *(Remote script will check for the necessary programs and permissions in order to execute the commands. If not properly installed or configured, it will give a descriptive error and exit)*
 
