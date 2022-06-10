@@ -1,9 +1,11 @@
 #!/bin/sh
 
+_PWD=$(pwd)
+
 # Sanity check 1: Make sure the script is running in a folder that is writable
 echo "[i] Checking for read/write access to the current folder..."
-cd ~/ || echo "[!] No home directory found" && exit 1
-touch test.txt || echo "[!] No write permissions" && exit 1
+cd ~/ || echo "[!] No home directory found"
+touch test.txt || { echo "[!] No write permissions in $_PWD"; exit 1; }
 rm test.txt
 
 ROLE_NAME='assumeRole-Role'
