@@ -14,11 +14,13 @@ POLICY_DOCUMENT='trustPolicy.json'
 
 # Sanity check #2: if necessary programs are not installed (List below), program exits.
 echo "[i] Checking if necessary programs are installed: AWS CLI, AWK, SED"
+
 function _CHECK_PROGRAM () {
-	sleep 0.3
-        ! which $1 &>/dev/null && \ 
-		echo " [X] $1 not installed or on the user's path. Exiting... " && exit 1 || \
-		echo "    Ok - $1 installed."
+		echo "[i] Checking if $1 is installed and on the user's path..."
+		sleep 0.3
+        ! which $1 &>/dev/null && \
+				echo " !  $1 not installed or on the user's path. Exiting... " && exit 1 || \
+				echo " - Ok"
 }
 
 _CHECK_PROGRAM aws
