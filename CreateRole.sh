@@ -19,8 +19,7 @@ function _CHECK_PROGRAM () {
 		echo "[i] Checking if $1 is installed and on the user's path..."
 		sleep 0.3
         ! which $1 &>/dev/null && \
-				echo " !  $1 not installed or on the user's path. Exiting... " && exit 1 || \
-				echo " - Ok"
+				echo " !  $1 not installed or on the user's path. Exiting... " && exit 1
 }
 
 _CHECK_PROGRAM aws
